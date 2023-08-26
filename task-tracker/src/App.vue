@@ -56,9 +56,16 @@
 <style scoped>
   button {
     padding: 0;
+    color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    padding: 8px 14px;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+  }
+  button:hover {
+    background-color: #0069D9;
   }
 
   .container {
@@ -77,17 +84,47 @@
     align-items: center;
     margin-bottom: 20px;
   }
-  .header button {
-    padding: 8px 14px;
-    color: #fff;
-    background-color: #007bff;
-    border: 1px solid #007bff;
-  }
-  .header button:hover {
-    background-color: #0069D9;
+
+  .form-container {
+    margin-bottom: 40px
   }
 
-  .body .form-container {
-    border: 1px solid red;
+  .form-container .form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    font-size: 18px;
+  }
+
+  .form-group input {
+    padding: 8px 14px;
+    font-size: 16px;
+    outline: none;
+    border: 2px solid #9E9FA5;
+  }
+
+  .form-container .set-reminder {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .set-reminder input {
+    margin-left: 20px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
+  .form-container form > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px 14px;
+    font-size: 18px;
+    font-weight: 700;
   }
 </style>
