@@ -1,5 +1,6 @@
 <script setup>
   import TrashIcon from './components/icons/TrashIcon.vue';
+  import CheckIcon from './components/icons/CheckIcon.vue';
 </script>
 
 <template>
@@ -35,40 +36,52 @@
             <p>March 5th at 2:30pm</p>
           </div>
           <div class="action">
-            <button class="button-icon">
+            <button class="button-icon success">
+              <CheckIcon />
+            </button>
+            <button class="button-icon error">
               <TrashIcon />
             </button>
           </div>
         </div>
         <div class="task-list-item reminder">
           <div class="content">
-            <h2>Meeting with boss</h2>
-            <p>December 25 at 8:30am</p>
+            <h2>Doctors Appointment</h2>
+            <p>March 5th at 2:30pm</p>
           </div>
           <div class="action">
-            <button class="button-icon">
+            <button class="button-icon success">
+              <CheckIcon />
+            </button>
+            <button class="button-icon error">
               <TrashIcon />
             </button>
           </div>
         </div>
         <div class="task-list-item done">
           <div class="content">
-            <h2>Meeting with boss</h2>
-            <p>December 25 at 8:30am</p>
+            <h2>Doctors Appointment</h2>
+            <p>March 5th at 2:30pm</p>
           </div>
           <div class="action">
-            <button class="button-icon">
+            <button class="button-icon success">
+              <CheckIcon />
+            </button>
+            <button class="button-icon error">
               <TrashIcon />
             </button>
           </div>
         </div>
         <div class="task-list-item reminder done">
           <div class="content">
-            <h2>Meeting with boss</h2>
-            <p>December 25 at 8:30am</p>
+            <h2>Doctors Appointment</h2>
+            <p>March 5th at 2:30pm</p>
           </div>
           <div class="action">
-            <button class="button-icon">
+            <button class="button-icon success">
+              <CheckIcon />
+            </button>
+            <button class="button-icon error">
               <TrashIcon />
             </button>
           </div>
@@ -92,6 +105,7 @@
     border-radius: 5px;
     padding: 8px 14px;
     outline: none;
+    background-color: transparent;
   }
   .primary {
     color: #fff;
@@ -183,6 +197,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 8px 16px;
+    cursor: pointer;
+  }
+  .task-list .task-list-item:hover {
+    background-color: #e6e6e6;
   }
   .task-list .done {
     color: #218838;
@@ -191,6 +209,10 @@
   .task-list .reminder {
     border-left-color: #d39e00;
     border-left-width: 4px;
+  }
+  .task-list-item .action {
+    display: flex;
+    gap: 16px;
   }
   .button-icon {
     border: none;
@@ -201,7 +223,10 @@
     width: 20px;
     height: auto;
   }
-  .button-icon svg:hover {
+  .success svg:hover {
+    fill: #1e7e34;
+  }
+  .error svg:hover {
     fill: red;
   }
 
