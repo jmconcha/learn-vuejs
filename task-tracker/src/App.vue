@@ -103,10 +103,8 @@
   }
 
   .container {
-    margin-top: 100px;
     max-width: 500px;
     width: 100%;
-    padding: 40px 30px;
     border-radius: 5px;
     border: 2px solid #9E9FA5;
     background-color: #F1F0E8;
@@ -117,6 +115,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding: 40px 30px 0 30px;
+  }
+
+  .body {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .form-container {
@@ -165,6 +169,13 @@
     font-weight: 700;
   }
 
+  .task-list {
+    border-right: 2px solid #9E9FA5;
+    max-height: 300px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
   .task-list .task-list-item {
     border: 2px solid #9E9FA5;
     margin-bottom: 16px;
@@ -192,5 +203,16 @@
   }
   .button-icon svg:hover {
     fill: red;
+  }
+
+  .footer {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 20px 30px;
+    border-top: 2px solid #9E9FA5;
   }
 </style>
