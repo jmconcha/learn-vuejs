@@ -56,6 +56,13 @@
   function removeTask(id) {
     taskList.value = taskList.value.filter(task => task.id !== id);
   }
+  function reminder(id) {
+    taskList.value.forEach(task => {
+      if (task.id === id) {
+        task.reminder = !task.reminder;
+      }
+    });
+  }
 </script>
 
 <template>
@@ -73,6 +80,7 @@
         :taskList="taskList"
         @toggleDone="toggleDone"
         @removeTask="removeTask"
+        @reminder="reminder"
       />
     </div>
 

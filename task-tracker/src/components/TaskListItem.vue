@@ -11,11 +11,13 @@
     },
     onDoneToggle: Function,
     onRemoveTask: Function,
+    onReminder: Function,
   });
 </script>
 
 <template>
   <div
+    @click="onReminder(props.task.id)"
     :class="{
       'task-list-item': true,
       reminder: props.task.reminder,
@@ -26,7 +28,12 @@
       <p>{{ props.task.dayAndTime }}</p>
     </div>
     <div class="action">
-      <button @click="onDoneToggle(props.task.id)" class="button-icon success">
+      <button
+        @click="(e) => {
+          e.stopPropagation();
+          onDoneToggle(props.task.id);
+        }"
+        class="button-icon success">
         <CheckIcon />
       </button>
       <button @click="onRemoveTask(props.task.id)" class="button-icon danger">
@@ -45,6 +52,7 @@
     align-items: center;
     padding: 8px 16px;
     cursor: pointer;
+    user-select: none;
   }
   .task-list-item:hover {
     background-color: #e6e6e6;

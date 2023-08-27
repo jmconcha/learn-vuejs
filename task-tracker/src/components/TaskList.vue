@@ -5,7 +5,7 @@
     taskList: Array,
   })
 
-  const emit = defineEmits(['toggleDone', 'removeTask']);
+  const emit = defineEmits(['toggleDone', 'removeTask', 'reminder']);
 
   function onDoneToggle(id) {
     emit('toggleDone', id);
@@ -13,13 +13,21 @@
   function onRemoveTask(id) {
     emit('removeTask', id);
   }
+  function onReminder(id) {
+    emit('reminder', id);
+  }
 </script>
 
 <template>
   <div class="task-list">
     <ul>
       <li v-for="task in props.taskList" :key="task.id">
-        <TaskListItem :task="task" :onDoneToggle="onDoneToggle" :onRemoveTask="onRemoveTask" />
+        <TaskListItem 
+          :task="task" 
+          :onDoneToggle="onDoneToggle" 
+          :onRemoveTask="onRemoveTask" 
+          :onReminder="onReminder"
+        />
       </li>
     </ul>
   </div>
@@ -27,9 +35,8 @@
 
 <style scoped>
   .task-list {
-    border-right: 2px solid #9E9FA5;
-    max-height: 300px;
-    height: 100%;
+    border-right: 2px dashed #9E9FA5;
+    height: 300px;
     overflow-y: auto;
   }
   .task-list ul {
