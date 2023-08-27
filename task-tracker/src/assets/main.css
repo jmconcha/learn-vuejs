@@ -41,10 +41,3 @@ button {
   background-color: #c82333;
   border-color: #bd2130;
 }
-
-.success svg:hover {
-  fill: #1e7e34;
-}
-.error svg:hover {
-  fill: red;
-}

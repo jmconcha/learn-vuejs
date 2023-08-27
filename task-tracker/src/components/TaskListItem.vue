@@ -9,6 +9,8 @@
       done: Boolean,
       reminder: Boolean,
     },
+    onDoneToggle: Function,
+    onRemoveTask: Function,
   });
 </script>
 
@@ -24,10 +26,10 @@
       <p>{{ props.task.dayAndTime }}</p>
     </div>
     <div class="action">
-      <button class="button-icon success">
+      <button @click="onDoneToggle(props.task.id)" class="button-icon success">
         <CheckIcon />
       </button>
-      <button class="button-icon error">
+      <button @click="onRemoveTask(props.task.id)" class="button-icon danger">
         <TrashIcon />
       </button>
     </div>
@@ -62,10 +64,20 @@
   .button-icon {
     border: none;
     padding: 0;
+    background-color: transparent;
   }
   .button-icon svg {
     fill: #9E9FA5;
     width: 20px;
     height: auto;
+  }
+  .done .success svg {
+    fill: #1e7e34;
+  }
+  .success svg:hover {
+    fill: #1e7e34;
+  }
+  .danger svg:hover {
+    fill: red;
   }
 </style>

@@ -4,13 +4,22 @@
   const props = defineProps({
     taskList: Array,
   })
+
+  const emit = defineEmits(['toggleDone', 'removeTask']);
+
+  function onDoneToggle(id) {
+    emit('toggleDone', id);
+  }
+  function onRemoveTask(id) {
+    emit('removeTask', id);
+  }
 </script>
 
 <template>
   <div class="task-list">
     <ul>
       <li v-for="task in props.taskList" :key="task.id">
-        <TaskListItem :task="task" />
+        <TaskListItem :task="task" :onDoneToggle="onDoneToggle" :onRemoveTask="onRemoveTask" />
       </li>
     </ul>
   </div>

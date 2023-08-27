@@ -46,6 +46,16 @@
       done: false,
     });
   }
+  function toggleDone(id) {
+    taskList.value.forEach(task => {
+      if (task.id === id) {
+        task.done = !task.done;
+      }
+    });
+  }
+  function removeTask(id) {
+    taskList.value = taskList.value.filter(task => task.id !== id);
+  }
 </script>
 
 <template>
@@ -57,8 +67,13 @@
     </div>
 
     <div class="body">
-      <TaskForm v-if="showTaskForm" @addTask="(task) => addTask(task)" />
-      <TaskList v-if="taskList.length > 0" :taskList="taskList" />
+      <TaskForm v-if="showTaskForm" @addTask="addTask" />
+      <TaskList
+        v-if="taskList.length > 0"
+        :taskList="taskList"
+        @toggleDone="toggleDone"
+        @removeTask="removeTask"
+      />
     </div>
 
     <div class="footer">
@@ -102,6 +117,6 @@
     align-items: center;
     margin-top: 40px;
     padding: 20px 30px;
-    border-top: 2px solid #9E9FA5;
+    border-top: 1px solid #9E9FA5;
   }
 </style>
