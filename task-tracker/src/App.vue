@@ -1,6 +1,6 @@
 <script setup>
-  import TrashIcon from './components/icons/TrashIcon.vue';
-  import CheckIcon from './components/icons/CheckIcon.vue';
+  import TaskForm from './components/TaskForm.vue';
+  import TaskList from './components/TaskList.vue';
 </script>
 
 <template>
@@ -11,82 +11,8 @@
     </div>
 
     <div class="body">
-      <div class="form-container">
-        <form action="#">
-          <div class="form-group">
-            <label for="task">Task</label>
-            <input id="task" class="form-control" type="text" placeholder="Add Task">
-          </div>
-          <div class="form-group">
-            <label for="dayAndTime">Day & Time</label>
-            <input id="dayAndTime" class="form-control" type="text" placeholder="Add Day & Time">
-          </div>
-          <div class="set-reminder">
-            <input id="setReminder" type="checkbox">
-            <label for="setReminder">Set Reminder</label>
-          </div>
-          <button class="primary">Save Task</button>
-        </form>
-      </div>
-
-      <div class="task-list">
-        <div class="task-list-item">
-          <div class="content">
-            <h2>Doctors Appointment</h2>
-            <p>March 5th at 2:30pm</p>
-          </div>
-          <div class="action">
-            <button class="button-icon success">
-              <CheckIcon />
-            </button>
-            <button class="button-icon error">
-              <TrashIcon />
-            </button>
-          </div>
-        </div>
-        <div class="task-list-item reminder">
-          <div class="content">
-            <h2>Doctors Appointment</h2>
-            <p>March 5th at 2:30pm</p>
-          </div>
-          <div class="action">
-            <button class="button-icon success">
-              <CheckIcon />
-            </button>
-            <button class="button-icon error">
-              <TrashIcon />
-            </button>
-          </div>
-        </div>
-        <div class="task-list-item done">
-          <div class="content">
-            <h2>Doctors Appointment</h2>
-            <p>March 5th at 2:30pm</p>
-          </div>
-          <div class="action">
-            <button class="button-icon success">
-              <CheckIcon />
-            </button>
-            <button class="button-icon error">
-              <TrashIcon />
-            </button>
-          </div>
-        </div>
-        <div class="task-list-item reminder done">
-          <div class="content">
-            <h2>Doctors Appointment</h2>
-            <p>March 5th at 2:30pm</p>
-          </div>
-          <div class="action">
-            <button class="button-icon success">
-              <CheckIcon />
-            </button>
-            <button class="button-icon error">
-              <TrashIcon />
-            </button>
-          </div>
-        </div>
-      </div>
+      <TaskForm />
+      <TaskList />
     </div>
 
     <div class="footer">
@@ -97,25 +23,6 @@
 </template>
 
 <style scoped>
-  button {
-    padding: 0;
-    color: #000;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 8px 14px;
-    outline: none;
-    background-color: transparent;
-  }
-  .primary {
-    color: #fff;
-    background-color: #007bff;
-    border: 1px solid #007bff;
-  }
-  .primary:hover {
-    background-color: #0069D9;
-  }
-
   .container {
     max-width: 500px;
     width: 100%;
@@ -132,102 +39,13 @@
     padding: 40px 30px 0 30px;
   }
 
-  .body {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .form-container {
-    margin-bottom: 40px
-  }
-
-  .form-container .form-group{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  .form-group label {
-    font-size: 18px;
-  }
-
-  .form-group input {
-    padding: 8px 14px;
-    font-size: 16px;
-    outline: none;
-    border: 2px solid #9E9FA5;
-  }
-
-  .form-container .set-reminder {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  .set-reminder input {
-    margin-right: 10px;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-  }
-  .set-reminder label {
-    user-select: none;
-  }
-
-  .form-container form > button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 8px 14px;
-    font-size: 18px;
+  .header button {
     font-weight: 700;
   }
 
-  .task-list {
-    border-right: 2px solid #9E9FA5;
-    max-height: 300px;
-    height: 100%;
-    overflow-y: auto;
-  }
-
-  .task-list .task-list-item {
-    border: 2px solid #9E9FA5;
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  .task-list .task-list-item:hover {
-    background-color: #e6e6e6;
-  }
-  .task-list .done {
-    color: #218838;
-    border-color: #1e7e34;
-  }
-  .task-list .reminder {
-    border-left-color: #d39e00;
-    border-left-width: 4px;
-  }
-  .task-list-item .action {
-    display: flex;
-    gap: 16px;
-  }
-  .button-icon {
-    border: none;
-    padding: 0;
-  }
-  .button-icon svg {
-    fill: #9E9FA5;
-    width: 20px;
-    height: auto;
-  }
-  .success svg:hover {
-    fill: #1e7e34;
-  }
-  .error svg:hover {
-    fill: red;
+  .body {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .footer {

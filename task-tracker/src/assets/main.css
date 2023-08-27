@@ -11,3 +11,30 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+button {
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 14px;
+  outline: none;
+  background-color: transparent;
+}
+
+.primary {
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+.primary:hover {
+  background-color: #0069D9;
+}
+
+.success svg:hover {
+  fill: #1e7e34;
+}
+.error svg:hover {
+  fill: red;
+}
