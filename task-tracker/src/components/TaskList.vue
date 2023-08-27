@@ -1,42 +1,15 @@
 <script setup>
   import TaskListItem from './TaskListItem.vue';
 
-  const taskList = [
-    {
-      id: 0,
-      text: 'cook breakfast',
-      dateAndTime: 'May 7th at 7:00am',
-      done: false,
-      reminder: false,
-    },
-    {
-      id: 1,
-      text: 'cook breakfast',
-      dateAndTime: 'May 7th at 7:00am',
-      done: true,
-      reminder: false,
-    },
-    {
-      id: 2,
-      text: 'cook breakfast',
-      dateAndTime: 'May 7th at 7:00am',
-      done: true,
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: 'cook breakfast',
-      dateAndTime: 'May 7th at 7:00am',
-      done: false,
-      reminder: true,
-    },
-  ];
+  const props = defineProps({
+    taskList: Array,
+  })
 </script>
 
 <template>
   <div class="task-list">
     <ul>
-      <li v-for="task in taskList" :key="task.id">
+      <li v-for="task in props.taskList" :key="task.id">
         <TaskListItem :task="task" />
       </li>
     </ul>

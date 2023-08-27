@@ -1,22 +1,68 @@
 <script setup>
+  import { ref } from 'vue';
   import TaskForm from './components/TaskForm.vue';
   import TaskList from './components/TaskList.vue';
+
+  const showTaskForm = ref(false);
+  const taskList = ref([
+    {
+      id: 0,
+      text: 'cook breakfast',
+      dayAndTime: 'May 7th at 7:00am',
+      done: false,
+      reminder: false,
+    },
+    {
+      id: 1,
+      text: 'cook breakfast',
+      dayAndTime: 'May 7th at 7:00am',
+      done: true,
+      reminder: false,
+    },
+    {
+      id: 2,
+      text: 'cook breakfast',
+      dayAndTime: 'May 7th at 7:00am',
+      done: false,
+      reminder: true,
+    },
+    {
+      id: 3,
+      text: 'cook breakfast',
+      dayAndTime: 'May 7th at 7:00am',
+      done: true,
+      reminder: true,
+    },
+  ]);
+
+  const currentYear = new Date().getFullYear();
+  
+  function addTask(task) {
+    taskList.value.unshift({
+      id: taskList.value.length,
+      text: task.text,
+      dayAndTime: task.dayAndTime,
+      reminder: task.reminder,
+      done: false,
+    });
+  }
 </script>
 
 <template>
   <div class="container">
     <div class="header">
       <h1>Task Tracker</h1>
-      <button class="primary">Add Task</button>
+      <button v-if="!showTaskForm" @click="showTaskForm = !showTaskForm" class="primary">Add Task</button>
+      <button v-if="showTaskForm" @click="showTaskForm = !showTaskForm" class="danger">Close</button>
     </div>
 
     <div class="body">
-      <TaskForm />
-      <TaskList />
+      <TaskForm v-if="showTaskForm" @addTask="(task) => addTask(task)" />
+      <TaskList v-if="taskList.length > 0" :taskList="taskList" />
     </div>
 
     <div class="footer">
-      <span>Copyright &#169; 2023</span>
+      <span>Copyright &#169; {{ currentYear }}</span>
       <a href="#about">About</a>
     </div>
   </div>

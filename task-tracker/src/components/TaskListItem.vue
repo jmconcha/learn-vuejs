@@ -38,6 +38,7 @@
   .task-list-item {
     border: 2px solid #9E9FA5;
     margin-bottom: 16px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 16px;

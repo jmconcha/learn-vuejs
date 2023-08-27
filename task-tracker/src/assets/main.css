@@ -32,6 +32,16 @@ button {
   background-color: #0069D9;
 }
 
+.danger {
+  color: #fff;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
 .success svg:hover {
   fill: #1e7e34;
 }
