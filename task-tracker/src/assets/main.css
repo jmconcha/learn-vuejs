@@ -1,0 +1,43 @@
+@import './base.css';
+
+#app {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+button {
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 14px;
+  outline: none;
+  background-color: transparent;
+}
+
+.primary {
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+.primary:hover {
+  background-color: #0069D9;
+}
+
+.danger {
+  color: #fff;
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
